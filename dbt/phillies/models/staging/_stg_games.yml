@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_games
+    description: One row per Phillies game, cleaned and typed. Standings columns reflect the state after the game.
+    columns:
+      - name: game_id
+        description: season-MMDD-game_number, unique across doubleheaders.
+        data_tests: [unique, not_null]
+      - name: game_date
+        data_tests: [not_null]
+      - name: opponent
+        data_tests: [not_null]
+      - name: is_home
+        data_tests: [not_null]
+      - name: attendance
+        description: Paid attendance. Null where Baseball Reference lists Unknown. Away games reflect the opponent's park.

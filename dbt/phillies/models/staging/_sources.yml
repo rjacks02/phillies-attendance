@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: games
+        description: Phillies game logs from Baseball Reference via pybaseball, one row per game.
