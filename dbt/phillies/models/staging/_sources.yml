@@ -6,3 +6,5 @@ sources:
     tables:
       - name: games
         description: Phillies game logs from Baseball Reference via pybaseball, one row per game.
+      - name: weather_hourly
+        description: Hourly historical weather at Citizens Bank Park from Open-Meteo, local time.

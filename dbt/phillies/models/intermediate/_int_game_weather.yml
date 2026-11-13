@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: int_game_weather
+    description: Approximate in-game weather at Citizens Bank Park (1-3pm day, 7-9pm night). Only meaningful for home games.
+    columns:
+      - name: game_id
+        data_tests: [unique, not_null]
