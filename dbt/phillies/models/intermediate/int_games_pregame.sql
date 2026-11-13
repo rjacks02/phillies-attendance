@@ -1,4 +1,14 @@
-with base as (
+with games as (
+    select
+        g.*,
+        r.park_id,
+        -- home game at any park other than Citizens Bank Park (Retrosheet PHI13)
+        coalesce(g.is_home and r.park_id <> 'PHI13', false) as is_neutral_site
+    from {{ ref('stg_games') }} g
+    left join {{ ref('stg_retrosheet_games') }} r using (game_id)
+),
+
+base as (
     select
         g.*,
 
@@ -14,16 +24,17 @@ with base as (
         avg(is_win::int) over (w_season rows between 10 preceding and 1 preceding)
                                                           as last10_win_pct,
 
-        -- home/away sequence and recent crowds on the same side
+        -- home/away sequence and recent crowds on the same side (neutral sites excluded)
         row_number() over w_side                          as side_game_seq,
-        avg(attendance) over (w_side rows between 5 preceding and 1 preceding)
+        avg(case when not is_neutral_site then attendance end)
+            over (w_side rows between 5 preceding and 1 preceding)
                                                           as rolling5_attendance,
 
         -- calendar
         extract(isodow from game_date)::int               as day_of_week,
         extract(month  from game_date)::int               as month
 
-    from {{ ref('stg_games') }} g
+    from games g
     window
         w_season as (partition by season order by game_date, game_number),
         w_side   as (partition by season, is_home order by game_date, game_number)

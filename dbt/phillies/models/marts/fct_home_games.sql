@@ -10,6 +10,7 @@ with home as (
     from {{ ref('int_games_pregame') }} g
     where g.is_home
       and g.season not in (2020, 2021)
+      and not g.is_neutral_site
 )
 
 select

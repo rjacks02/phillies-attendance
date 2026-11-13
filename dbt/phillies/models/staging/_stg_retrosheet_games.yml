@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_retrosheet_games
+    description: Phillies home games with Retrosheet park IDs. Retrosheet game_num 0 (single game) maps to game_number 1.
+    columns:
+      - name: game_id
+        data_tests: [unique, not_null]
+      - name: park_id
+        data_tests: [not_null]
