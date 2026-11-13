@@ -1,0 +1,29 @@
+[0m19:46:55.544818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121d59070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126e3cdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126e3c950>]}
+
+
+============================== 19:46:55.577267 | 2618f800-c6b9-4ddd-bb30-4f9d06d95d2e ==============================
+[0m19:46:55.577267 [info ] [MainThread]: Running with dbt=1.12.7
+[0m19:46:55.577753 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'use_experimental_parser': 'False', 'empty': 'None', 'fail_fast': 'False', 'debug': 'False', 'warn_error': 'None', 'static_parser': 'True', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'log_format': 'default', 'partial_parse': 'True', 'hints_enabled': 'True', 'invocation_command': 'dbt init phillies --skip-profile-setup', 'indirect_selection': 'eager', 'profiles_dir': '/Users/rjackson/.dbt', 'version_check': 'True', 'use_colors': 'True', 'log_cache_events': 'False', 'target_path': 'None', 'log_path': 'logs', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'printer_width': '80', 'write_json': 'True'}
+[0m19:46:55.640403 [info ] [MainThread]: Creating dbt configuration folder at /Users/rjackson/.dbt
+[0m19:46:55.642166 [debug] [MainThread]: Starter project path: /Users/rjackson/Projects/Phillies/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m19:46:55.647457 [info ] [MainThread]: Your new dbt project "phillies" was created!
+Initialized new project in /Users/rjackson/Projects/Phillies/dbt/phillies/phillies
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:46:55.656935 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.19454467, "process_in_blocks": "0", "process_kernel_time": 0.565812, "process_mem_max_rss": "185663488", "process_out_blocks": "0", "process_user_time": 3.840532}
+[0m19:46:55.657421 [debug] [MainThread]: Command `dbt init` succeeded at 19:46:55.657335 after 0.20 seconds
+[0m19:46:55.657736 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12693a0c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126e3b7a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x121d59070>]}
+[0m19:46:55.658041 [debug] [MainThread]: Flushing usage events
+[0m19:46:56.078000 [debug] [MainThread]: An error was encountered while trying to flush usage events

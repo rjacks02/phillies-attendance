@@ -1,0 +1,12 @@
+phillies:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: rjackson
+      password: ""
+      dbname: phillies
+      schema: analytics
+      threads: 4
