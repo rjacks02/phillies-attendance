@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_games_pregame
+    description: stg_games plus features known before first pitch, safe for modeling.
+    columns:
+      - name: game_id
+        data_tests: [unique, not_null]
+      - name: pregame_wins
+        data_tests: [not_null]
