@@ -5,7 +5,7 @@ import pandas as pd
 from pybaseball import schedule_and_record
 from sqlalchemy import create_engine, text
 
-SEASONS = range(2015, 2026)
+SEASONS = range(2015, 2027)
 engine = create_engine("postgresql+psycopg://localhost/phillies")
 
 frames = []
@@ -21,6 +21,7 @@ games["loaded_at"] = datetime.now(timezone.utc)
 
 with engine.begin() as conn:
     conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw"))
+    conn.execute(text("DROP TABLE IF EXISTS raw.games CASCADE"))
     conn.execute(text("DROP TABLE IF EXISTS raw.games_2025"))
 
 games.to_sql("games", engine, schema="raw", if_exists="replace", index=False)

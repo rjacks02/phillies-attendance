@@ -26,7 +26,7 @@ COLS = {
 engine = create_engine("postgresql+psycopg://localhost/phillies")
 
 frames = []
-for season in range(2015, 2026):
+for season in range(2015, 2027):
     r = requests.get(URL.format(season=season), timeout=60)
     if r.status_code == 404:
         print(f"{season}: not published, skipping")
@@ -46,6 +46,7 @@ logs = pd.concat(frames, ignore_index=True)
 
 with engine.begin() as conn:
     conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw"))
+    conn.execute(text("DROP TABLE IF EXISTS raw.retrosheet_gamelogs CASCADE"))
 
 logs.to_sql("retrosheet_gamelogs", engine, schema="raw", if_exists="replace", index=False)
 print(f"Loaded {len(logs)} rows into raw.retrosheet_gamelogs")

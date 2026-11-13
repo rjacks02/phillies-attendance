@@ -9,7 +9,7 @@ LAT, LON = 39.9061, -75.1665  # Citizens Bank Park
 engine = create_engine("postgresql+psycopg://localhost/phillies")
 
 frames = []
-for season in range(2015, 2026):
+for season in range(2015, 2027):
     params = {
         "latitude": LAT,
         "longitude": LON,
@@ -34,6 +34,7 @@ weather["time"] = pd.to_datetime(weather["time"])
 
 with engine.begin() as conn:
     conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw"))
+    conn.execute(text("DROP TABLE IF EXISTS raw.weather_hourly CASCADE"))
 
 weather.to_sql("weather_hourly", engine, schema="raw", if_exists="replace", index=False)
 print(f"Loaded {len(weather)} rows into raw.weather_hourly")
