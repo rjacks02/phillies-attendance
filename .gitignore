@@ -3,3 +3,4 @@ data/raw/
 dbt/phillies/target/
 dbt/phillies/logs/
 .DS_Store
+node_modules/

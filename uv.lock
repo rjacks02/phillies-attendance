@@ -2199,6 +2199,8 @@ source = { editable = "." }
 dependencies = [
     { name = "dbt-postgres" },
     { name = "jupyter" },
+    { name = "matplotlib" },
+    { name = "numpy" },
     { name = "pandas" },
     { name = "psycopg", extra = ["binary"] },
     { name = "pybaseball" },
@@ -2210,6 +2212,8 @@ dependencies = [
 requires-dist = [
     { name = "dbt-postgres", specifier = ">=1.11.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
+    { name = "matplotlib", specifier = ">=3.11.2" },
+    { name = "numpy", specifier = ">=2.5.4" },
     { name = "pandas", specifier = "<3" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.3.9" },
     { name = "pybaseball", specifier = ">=2.2.7" },
